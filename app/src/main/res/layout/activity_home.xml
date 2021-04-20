@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="10dp"
-        android:text="User Interface"
+        android:text="Uvvyvy Interface"
         android:textAlignment="center"
         android:textColor="@color/purple_500"
         android:textSize="20sp" />
