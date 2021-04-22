@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage">
-        <activity android:name=".RetailerHomeActivity"></activity>
+        <activity android:name=".RetailerAddNewProductActivity"></activity>
+        <activity android:name=".RetailerSell" />
+        <activity android:name=".WholesalerAddNewProductActivity" />
+        <activity android:name=".RetailerHomeActivity" />
         <activity android:name=".WholesalerHomeActivity" />
         <activity android:name=".WholesalerRegister" />
         <activity android:name=".RetailerRegister" />
