@@ -4,5 +4,8 @@ import com.example.loginpage.Model.Users;
 
 public class Prevalent
 {
-    private static Users currentOnlineUser;
+    public static Users currentOnlineUser;
+
+    public static final String UserUsernameKey= "UserUsername";
+    public static final String UserPasswordKey="User Password";
 }

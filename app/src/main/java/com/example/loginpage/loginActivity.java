@@ -13,19 +13,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.loginpage.Model.Users;
+import com.example.loginpage.Prevalent.Prevalent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class loginActivity extends AppCompatActivity
+import io.paperdb.Paper;
+
+public class  loginActivity extends AppCompatActivity
 {
     private Button GetOTPVerification, LoginUserButton , RetailerLoginButton, WholesalerLoginButton;
     private EditText InputUsername,InputPassword;
     private ProgressDialog loadingBar;
 
     private String parentDbName = "Users";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -73,6 +77,8 @@ public class loginActivity extends AppCompatActivity
         InputUsername= findViewById(R.id.login_username_input);
         loadingBar= new ProgressDialog(this);
 
+        Paper.init(this);
+
 
         LoginUserButton.setOnClickListener(new View.OnClickListener()
         {
@@ -115,6 +121,9 @@ public class loginActivity extends AppCompatActivity
 
     private void AllowAccessToAccount(String username, String password)
     {
+        Paper.book().write(Prevalent.UserUsernameKey, username);
+        Paper.book().write(Prevalent.UserPasswordKey, password);
+
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
 
@@ -133,6 +142,7 @@ public class loginActivity extends AppCompatActivity
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(loginActivity.this, HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersData;
                             startActivity(intent);
 
                         }
