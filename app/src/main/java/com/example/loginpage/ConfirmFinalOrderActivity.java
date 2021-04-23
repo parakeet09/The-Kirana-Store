@@ -22,7 +22,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.SimpleTimeZone;
 
-public class ConfirmFinalOrderActivity extends AppCompatActivity
+public class  ConfirmFinalOrderActivity extends AppCompatActivity
 {
     private EditText nameEditText, phoneEditText, addressEditText, cityEditText;
     private Button confirmOderBtn;

@@ -2,13 +2,13 @@ package com.example.loginpage.Model;
 
 public class AdminOrders
 {
-    private String address, city, name, phone, state, time,date, totalAmount;
+    private String address, city, name, phone, state, time,date, totalAmount, username;
 
     public AdminOrders()
     {
     }
 
-    public AdminOrders(String address, String city, String name, String phone, String state, String time, String date, String totalAmount) {
+    public AdminOrders(String address, String city, String name, String phone, String state, String time, String date, String totalAmount, String username) {
         this.address = address;
         this.city = city;
         this.name = name;
@@ -17,6 +17,7 @@ public class AdminOrders
         this.time = time;
         this.date = date;
         this.totalAmount = totalAmount;
+        this.username = username;
     }
 
 
@@ -82,5 +83,13 @@ public class AdminOrders
 
     public void setTotalAmount(String totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

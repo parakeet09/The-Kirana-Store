@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginPage">
-        <activity android:name=".Adminuserproductsactivity"></activity>
+        <activity android:name=".SearchProductsActivity"></activity>
+        <activity android:name=".Adminuserproductsactivity" />
         <activity android:name=".AdminNewOrdersActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
         <activity android:name=".CartActivity" />
