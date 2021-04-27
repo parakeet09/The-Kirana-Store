@@ -1,5 +1,6 @@
 package com.example.loginpage;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.loginpage.Model.Users;
+import com.example.loginpage.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -19,6 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -26,10 +34,14 @@ public class OtpVerification extends AppCompatActivity {
 
     // variable for FirebaseAuth class
     private FirebaseAuth mAuth;
+    private ProgressDialog loadingBar;
+
+
+    private String parentDbName = "Users";
 
     // variable for our text input
     // field for phone and OTP.
-    private EditText edtPhone, edtOTP;
+    private EditText edtPhone, edtOTP,edtUsername;
 
     // buttons for generating OTP and verifying OTP
     private Button verifyOTPBtn, generateOTPBtn;
@@ -51,6 +63,8 @@ public class OtpVerification extends AppCompatActivity {
         edtOTP = findViewById(R.id.idEdtOtp);
         verifyOTPBtn = findViewById(R.id.idBtnVerify);
         generateOTPBtn = findViewById(R.id.idBtnGetOtp);
+        edtUsername= findViewById(R.id.idEdtUsername);
+        loadingBar= new ProgressDialog(this);
 
         // setting onclick listner for generate OTP button.
         generateOTPBtn.setOnClickListener(new View.OnClickListener() {
@@ -100,9 +114,35 @@ public class OtpVerification extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
-                            Intent i = new Intent(OtpVerification.this, HomeActivity.class);
-                            startActivity(i);
-                            finish();
+                            String username = edtUsername.getText().toString();
+                            final DatabaseReference RootRef;
+                            RootRef = FirebaseDatabase.getInstance().getReference();
+
+                            RootRef.addListenerForSingleValueEvent(new ValueEventListener()
+                            {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot)
+                                {
+                                    Users usersData= snapshot.child(parentDbName).child(username).getValue(Users.class);
+                                    if(snapshot.child(parentDbName).child(username).exists())
+                                    {
+                                        if(usersData.getUsername().equals(username))
+                                        {
+                                            Toast.makeText(OtpVerification.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                                            loadingBar.dismiss();
+                                            Intent i = new Intent(OtpVerification.this, HomeActivity.class);
+                                            Prevalent.currentOnlineUser = usersData;
+                                            startActivity(i);
+                                        }
+                                    }
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error)
+                                {
+                                }
+                            });
                         } else {
                             // if the code is not correct then we are
                             // displaying an error message to the user.

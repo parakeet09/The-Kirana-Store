@@ -8,12 +8,23 @@
     tools:context=".OtpVerification">
 
     <EditText
+        android:id="@+id/idEdtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:hint="Enter your username"
+        android:importantForAutofill="no"
+        />
+
+    <EditText
         android:id="@+id/idEdtPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="10dp"
         android:hint="Enter your phone"
+        android:layout_below="@+id/idEdtUsername"
         android:importantForAutofill="no"
         android:inputType="phone"
         />

@@ -13,7 +13,7 @@ public class RetailerSell extends AppCompatActivity
     private ImageView fruits, vegetables;
     private ImageView dairy_products, grains;
 
-    private Button LogoutBtn, CheckOrderBtn;
+    private Button LogoutBtn, CheckOrderBtn, maintainProductsBtn;
 
 
     @Override
@@ -24,6 +24,21 @@ public class RetailerSell extends AppCompatActivity
 
         LogoutBtn= (Button) findViewById(R.id.retailer_logout_btn);
         CheckOrderBtn= (Button) findViewById(R.id.check_orders_btn);
+        maintainProductsBtn= (Button) findViewById(R.id.maintain_btn);
+
+
+        maintainProductsBtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent =new Intent(RetailerSell.this, HomeActivity.class);
+                intent.putExtra("Retailer", "Retailer");
+                startActivity(intent);
+
+
+            }
+        });
 
         LogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override

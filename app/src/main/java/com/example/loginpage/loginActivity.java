@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.loginpage.Model.Users;
 import com.example.loginpage.Prevalent.Prevalent;
+import com.google.android.gms.common.SignInButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +25,7 @@ import io.paperdb.Paper;
 
 public class  loginActivity extends AppCompatActivity
 {
-    private Button GetOTPVerification, LoginUserButton , RetailerLoginButton, WholesalerLoginButton;
+    private Button GetOTPVerification, LoginUserButton , RetailerLoginButton, WholesalerLoginButton, signInGoogle;
     private EditText InputUsername,InputPassword;
     private ProgressDialog loadingBar;
 
@@ -40,6 +41,17 @@ public class  loginActivity extends AppCompatActivity
         GetOTPVerification= (Button) findViewById(R.id.otp_verification_button);
         RetailerLoginButton= (Button) findViewById(R.id.retailer_login_Button);
         WholesalerLoginButton= (Button) findViewById(R.id.wholesaler_login_button);
+        signInGoogle= (Button) findViewById(R.id.send_google_sign_in_btn) ;
+
+        signInGoogle.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(loginActivity.this, GoogleSignInActivity.class);
+                startActivity(intent);
+            }
+        });
 
         GetOTPVerification.setOnClickListener(new View.OnClickListener()
         {

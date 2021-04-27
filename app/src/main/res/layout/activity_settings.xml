@@ -106,5 +106,15 @@
         android:layout_margin="15dp"
         android:padding="10dp"
         />
+    <Button
+        android:id="@+id/get_location_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Location"
+        android:layout_below="@+id/settings_address"
+        android:layout_centerHorizontal="true"/>
+
+
+
 
 </RelativeLayout>

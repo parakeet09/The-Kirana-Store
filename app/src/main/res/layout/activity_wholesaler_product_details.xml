@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WholesalerProductDetails">
+
+    <ImageView
+        android:id="@+id/product_image_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/apple"/>
+
+    <TextView
+        android:id="@+id/product_name_details_name_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_image_details_wholesaler"
+        android:text="Product Name"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_name_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_name_details_name_wholesaler"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:text="Apples"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_description_details_name_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_name_details_wholesaler"
+        android:text="Product Description"
+
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_description_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description_details_name_wholesaler"
+        android:textColor="@color/black"
+        android:text="A dozen good quality apples"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_price_details_name_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_description_details_wholesaler"
+        android:text="Product Price"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_price_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_price_details_name_wholesaler"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="400"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_quantity_details_name_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_price_details_wholesaler"
+        android:text="Product Quantity left with Retailer"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/product_quantity_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/product_quantity_details_name_wholesaler"
+        android:textColor="@color/black"
+        android:text="10"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/product_quantity_required_details_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_below="@+id/product_quantity_details_wholesaler"
+        android:layout_margin="30dp"
+        android:hint="Quantity required by customer"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/button2"
+        android:layout_marginTop="10dp"
+        android:inputType="number"/>
+
+
+    <Button
+        android:id="@+id/add_product_to_cart_wholesaler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/nav_cart"
+        android:elevation="10dp"
+        android:backgroundTint="@color/purple_200"
+        android:text="Add To cart"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+
+        />
+
+</RelativeLayout>

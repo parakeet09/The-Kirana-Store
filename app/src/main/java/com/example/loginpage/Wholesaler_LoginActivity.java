@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.loginpage.Model.Users;
 import com.example.loginpage.Model.Wholesaler;
+import com.example.loginpage.retailerwholesaler.Wholesaler_sell;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -95,7 +96,7 @@ public class Wholesaler_LoginActivity extends AppCompatActivity
                             Toast.makeText(Wholesaler_LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
 
-                            Intent intent = new Intent(Wholesaler_LoginActivity.this, WholesalerHomeActivity.class);
+                            Intent intent = new Intent(Wholesaler_LoginActivity.this, Wholesaler_sell.class);
                             startActivity(intent);
 
                         }

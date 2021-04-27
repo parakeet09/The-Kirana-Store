@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class SettingsActivity extends AppCompatActivity
     private StorageTask uploadTask;
     private StorageReference storageProfilePictureRef;
     private String checker = "";
+    private Button getLocation;
 
 
     @Override
@@ -230,6 +232,17 @@ public class SettingsActivity extends AppCompatActivity
 
     private void userInfoDisplay(CircleImageView profileImageView, EditText fullNameEditText, EditText userPhoneEditText, EditText addressEditText)
     {
+        getLocation= findViewById(R.id.get_location_btn);
+        getLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent= new Intent(SettingsActivity.this,GetLocationPageActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
         DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(Prevalent.currentOnlineUser.getUsername());
 
         UsersRef.addValueEventListener(new ValueEventListener() {
